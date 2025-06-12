@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <Button
@@ -12,6 +13,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="跳转到动态Fragemnet"
+        tools:layout_editor_absoluteX="247dp"
+        tools:layout_editor_absoluteY="196dp" />
+    <Button
+        android:id="@+id/btn_jump_to_fragment_pass_between"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转到FragmentPassBetweenActivity"
         tools:layout_editor_absoluteX="247dp"
         tools:layout_editor_absoluteY="196dp" />
 
