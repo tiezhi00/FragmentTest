@@ -14,6 +14,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.fragmenttest.DynamicFragemnetActivity;
 import com.app.fragmenttest.R;
 
 
@@ -70,6 +71,16 @@ public class ExampleFragment extends Fragment {
                 }
         );
         tv_content.setText(content);
+
+        DynamicFragemnetActivity activity = (DynamicFragemnetActivity) getActivity();
+        activity.setOnDataChangeListener(new DynamicFragemnetActivity.OnDataChangeListener() {
+            @Override
+            public void onDataChange(String data) {
+                tv_content.setText(data);
+
+            }
+        });
+
 
     }
 }

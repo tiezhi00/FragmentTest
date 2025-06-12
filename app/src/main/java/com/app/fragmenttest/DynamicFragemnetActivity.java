@@ -1,5 +1,6 @@
 package com.app.fragmenttest;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -11,6 +12,7 @@ import com.app.fragmenttest.fragment.ExampleFragment;
 
 public class DynamicFragemnetActivity extends AppCompatActivity {
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +28,18 @@ public class DynamicFragemnetActivity extends AppCompatActivity {
 //                .addToBackStack(null)
                     .commit();
         }
-
-
-
+        findViewById(R.id.btn_pass_data_by_interface).setOnClickListener(v -> {
+            //通过接口方式向Fragement传递数据
+            if (onDataChangeListener != null) {
+                onDataChangeListener.onDataChange("通过接口传递数据");
+            }
+        });
+    }
+    private OnDataChangeListener onDataChangeListener;
+    public void setOnDataChangeListener(OnDataChangeListener listener) {
+        this.onDataChangeListener = listener;
+    }
+    public interface OnDataChangeListener {
+        void onDataChange(String data);
     }
 }
